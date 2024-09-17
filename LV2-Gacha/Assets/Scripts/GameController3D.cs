@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
 
-public class GameController : MonoBehaviour
+public class GameController3D : MonoBehaviour
 {
     [SerializeField] float maxSpeed;
     [SerializeField] float speed;
@@ -17,12 +15,6 @@ public class GameController : MonoBehaviour
     [SerializeField] string random;
     private float time;
     [SerializeField] AudioSource audio;
-    private static GameController _instantce;
-    public static GameController instantce => _instantce;
-    private void Awake()
-    {
-        _instantce = this;
-    }
     private void Start()
     {
         audio = gameObject.GetComponent<AudioSource>();
@@ -32,8 +24,9 @@ public class GameController : MonoBehaviour
         if (stopWheel)
         {
             time -= Time.deltaTime;
-/*            speed = time * speed;
-*/            imgWheel.transform.Rotate(0, 0, speed);
+            /*            speed = time * speed;
+            */
+            imgWheel.transform.Rotate(0, speed, 0);
             if (time < 2)
             {
                 speed--;
@@ -42,7 +35,7 @@ public class GameController : MonoBehaviour
                     audio.Stop();
                     stopWheel = false;
                     bgResult.SetActive(true);
-                    textUI.text = Common.Score + ": " + ShowResult.instantce.text;
+                    textUI.text = Common.Score + ": " + ShowResult3D.instantce.text;
                 }
             }
         }
@@ -51,7 +44,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (bgResult.activeSelf)
             {
