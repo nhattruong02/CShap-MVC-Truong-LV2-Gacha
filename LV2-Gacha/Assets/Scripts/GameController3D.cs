@@ -7,6 +7,7 @@ public class GameController3D : MonoBehaviour
 {
     [SerializeField] float maxSpeed;
     [SerializeField] float speed;
+    [SerializeField] float speedDown;
     [SerializeField] GameObject imgWheel;
     [SerializeField] GameObject arrow;
     private bool stopWheel;
@@ -15,6 +16,12 @@ public class GameController3D : MonoBehaviour
     [SerializeField] string random;
     private float time;
     [SerializeField] AudioSource audio;
+    private static GameController3D _instantce;
+    public static GameController3D instantce => _instantce;
+    private void Awake()
+    {
+        _instantce = this;
+    }
     private void Start()
     {
         audio = gameObject.GetComponent<AudioSource>();
@@ -24,21 +31,29 @@ public class GameController3D : MonoBehaviour
         if (stopWheel)
         {
             time -= Time.deltaTime;
-            /*            speed = time * speed;
-            */
-            imgWheel.transform.Rotate(0, speed, 0);
-            if (time < 2)
+            imgWheel.transform.Rotate(0, speed * Time.deltaTime, 0);
+            speed -= speedDown;
+            if (random.Equals(ShowResult3D.instantce.text))
             {
-                speed--;
-                if (speed < 0)
+                if (time <= 2f)
                 {
-                    audio.Stop();
-                    stopWheel = false;
-                    bgResult.SetActive(true);
-                    textUI.text = Common.Score + ": " + ShowResult3D.instantce.text;
+                    showResult();
                 }
             }
+            if (time <= 0.2f)
+            {
+                showResult();
+            }
+
         }
+    }
+
+    private void showResult()
+    {
+        audio.Stop();
+        stopWheel = false;
+        bgResult.SetActive(true);
+        textUI.text = Common.Score + ": " + ShowResult3D.instantce.text;
     }
 
     // Update is called once per frame

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.15471691, g: 1, b: 0.21314725, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: eec594296fd145740971e23c1b73adb0, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.8447076, g: 0.73617977, b: 0.77264243, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9e6672238450694e897f73161c12b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: 
+  text: x2
 --- !u!50 &1301396607
 Rigidbody2D:
   serializedVersion: 4
@@ -1886,13 +1886,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b8352a8b7cf1d429f75c51640d5fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 100
+  maxSpeed: 700
   speed: 0
-  imgWheel: {fileID: 1083270108}
+  speedDown: 3
+  imgWheel: {fileID: 1083270109}
   arrow: {fileID: 1301396602}
   bgResult: {fileID: 661266117}
   textUI: {fileID: 101962372}
-  random: 200
+  random: x2
   audio: {fileID: 1941918050}
 --- !u!4 &1941918049
 Transform:
