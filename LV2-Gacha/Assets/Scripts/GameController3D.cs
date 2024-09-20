@@ -9,53 +9,64 @@ public class GameController3D : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float speedDown;
     [SerializeField] GameObject imgWheel;
-    [SerializeField] GameObject arrow;
     private bool stopWheel;
     [SerializeField] GameObject bgResult;
     [SerializeField] Text textUI;
-    [SerializeField] string random;
     private float time;
-    [SerializeField] AudioSource audio;
+    [SerializeField] List<string> prizes = new List<string>();
+    float finalAngle;
+    float angle;
+    private float target;
+    [SerializeField] bool random;
+    int indexRandom;
     private static GameController3D _instantce;
     public static GameController3D instantce => _instantce;
     private void Awake()
     {
         _instantce = this;
     }
-    private void Start()
-    {
-        audio = gameObject.GetComponent<AudioSource>();
-    }
+
     private void FixedUpdate()
     {
         if (stopWheel)
         {
             time -= Time.deltaTime;
-            imgWheel.transform.Rotate(0, speed * Time.deltaTime, 0);
-            speed -= speedDown;
-            if (random.Equals(ShowResult3D.instantce.text))
+            imgWheel.transform.Rotate(0, speed * time, 0);
+            speed += speedDown;
+            if (random)
             {
-                if (time <= 2f)
+                if (finalAngle > target && finalAngle < target + angle && time < 0.5f)
                 {
-                    showResult();
+                    stopWheel = true;
+                    showResult(finalAngle);
                 }
+
             }
-            if (time <= 0.2f)
+            else
             {
-                showResult();
+                if (time <= 0)
+                {
+                    finalAngle = imgWheel.transform.eulerAngles.y;
+                    Debug.Log(finalAngle);
+                    showResult(finalAngle);
+                }
             }
 
         }
     }
 
-    private void showResult()
+    private void showResult(float finalAngle)
     {
-        audio.Stop();
         stopWheel = false;
         bgResult.SetActive(true);
-        textUI.text = Common.Score + ": " + ShowResult3D.instantce.text;
+        for (int i = 0; i < prizes.Count; i++)
+        {
+            if (finalAngle > i * angle && finalAngle < (i + 1) * angle)
+            {
+                textUI.text = prizes[i];
+            }
+        }
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -69,9 +80,14 @@ public class GameController3D : MonoBehaviour
     }
     public void Play()
     {
+        Debug.Log(finalAngle);
+        angle = 360f / prizes.Count;
+        indexRandom = Random.Range(0, prizes.Count);
+        Debug.Log(indexRandom);
+        target = angle * indexRandom;
         time = Random.Range(4, 6);
-        audio.Play();
         speed = maxSpeed;
         stopWheel = true;
+
     }
 }

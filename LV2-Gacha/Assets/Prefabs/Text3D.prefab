@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5231320705518173238}
   - component: {fileID: 5932699475230368144}
   - component: {fileID: 8055247263298179766}
-  - component: {fileID: 6164151545287131464}
   m_Layer: 0
   m_Name: Text3D
   m_TagString: Score
@@ -187,24 +186,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
---- !u!65 &6164151545287131464
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1585816406479191692}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.1778082, y: 0.07383723, z: 0.041419983}
-  m_Center: {x: 0.001944487, y: -0.00044216306, z: 0.020711154}

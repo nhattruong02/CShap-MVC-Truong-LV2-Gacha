@@ -746,8 +746,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.46600002, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 34.999146, y: 0.040405273}
-  m_SizeDelta: {x: 102.2886, y: 148.6911}
+  m_AnchoredPosition: {x: 38.434692, y: -2.4475098}
+  m_SizeDelta: {x: 174.1938, y: 244.0194}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1439767064
 MonoBehaviour:
@@ -789,7 +789,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1439767067}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439767062}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -833,7 +833,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1485676466, guid: 4dbf7a7e467309a448f2348846a62412, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -873,13 +873,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b8352a8b7cf1d429f75c51640d5fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 800
-  speed: 0
-  speedDown: 3
+  maxSpeed: 7
+  speed: 1
+  speedDown: 0.1
   imgWheel: {fileID: 1083270109}
   bgResult: {fileID: 661266117}
   textUI: {fileID: 101962372}
-  random: x2
   prizes:
   - 5k
   - 10k
@@ -893,7 +892,7 @@ MonoBehaviour:
   - "chia \u0111\xF4i"
   - 500k
   audio: {fileID: 1941918050}
-  segment: 11
+  random: 1
 --- !u!4 &1941918049
 Transform:
   m_ObjectHideFlags: 0
